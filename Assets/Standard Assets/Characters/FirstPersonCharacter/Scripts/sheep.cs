@@ -9,7 +9,7 @@ public class sheep : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        randomtime = Random.Range(6f, 120f);
+        randomtime = Random.Range(3f, 24f);
         audio = GetComponent<AudioSource>();
 	}
 	
@@ -17,7 +17,8 @@ public class sheep : MonoBehaviour {
 	void FixedUpdate () {
         if(timer > randomtime)
         {
-            randomtime = Random.Range(6f, 120f);
+            randomtime = Random.Range(3f, 12f);
+            audio.pitch = Random.Range(0.75f, 1f);
             timer = 0f;
             audio.Stop();
             audio.Play();

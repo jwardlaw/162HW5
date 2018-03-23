@@ -68,15 +68,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                if(Physics.Raycast(m_Camera.transform.position, m_Camera.transform.forward, out hit, 5f))
+                Debug.Log("Raycast");
+                if(Physics.Raycast(m_Camera.transform.position + m_Camera.transform.forward, m_Camera.transform.forward, out hit, 5f))
                 {
                     if(hit.collider.CompareTag("Wrench"))
                     {
-                        hit.collider.enabled = false;
+                        Debug.Log("Wrench");
+                        hit.collider.transform.gameObject.SetActive(false);
                         wrench = true;
                     }
                     if(hit.collider.CompareTag("Windmill") && wrench)
                     {
+                        Debug.Log("Windmill");
                         r.r = true;
                     }
                 }
